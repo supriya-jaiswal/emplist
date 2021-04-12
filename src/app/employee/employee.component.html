@@ -1,0 +1,25 @@
+<h2 style="text-align:center">{{title}}</h2>
+<nav class="navbar">
+  <input class="form-control" type="text" [(ngModel)]= "name" (ngModelChange)="Search($event)" placeholder="Enter name to search">
+</nav>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col" (click)="sort('name')">Name &nbsp;<i class="fa fa-sort"></i></th>
+      <th scope="col">Department</th>
+      <th scope="col"(click)="sort('joining_date')">Joining_Date &nbsp;<i class="fa fa-sort"></i></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of candidate_data | orderBy: key: reverse">
+      <th scope="row">{{employee.id}}</th>
+      <td>{{employee.name}}</td>
+      <td>{{employee.department}}</td>
+      <td>{{employee.joining_date}}</td>
+    </tr>
+
+  </tbody>
+</table>
